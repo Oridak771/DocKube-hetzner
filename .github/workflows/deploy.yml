@@ -5,10 +5,10 @@ name: Deploy Docusaurus to GitHub Pages
 on:
   push:
     branches:
-      - main # Or whichever branch you want to deploy from
+      - master # Or whichever branch you want to deploy from
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:

@@ -18,7 +18,7 @@ export default function Home() {
               <p className="hero__subtitle">
                 A highly optimized, easy-to-use, auto-upgradable, HA-default & Load-Balanced Kubernetes cluster
                 powered by k3s-on-MicroOS and deployed for peanuts on{' '}
-                <a href="https://hetzner.com" target="_blank">Hetzner Cloud</a> 🤑
+                <a href="https://hetzner.com" target="_blank">Hetzner Cloud</a> 
               </p>
 
               <div className="margin-top--lg margin-bottom--lg">
