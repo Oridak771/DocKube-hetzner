@@ -22,8 +22,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'kube-hetzner', // Usually your GitHub org/user name.
-  projectName: 'terraform-hcloud-kube-hetzner', // Usually your repo name.
+  organizationName: 'Oridak771', // Usually your GitHub org/user name.
+  projectName: 'Kube-hetzner.github.io', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
