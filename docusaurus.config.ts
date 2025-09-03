@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Kube-Hetzner',
   tagline: 'A highly optimized, easy-to-use, auto-upgradable, HA-default & Load-Balanced Kubernetes cluster powered by k3s-on-MicroOS',
-  favicon: 'img/favicon.ico',
+  favicon: 'https://github.com/kube-hetzner/terraform-hcloud-kube-hetzner/raw/master/.images/kube-hetzner-logo.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
