@@ -52,6 +52,7 @@ const sidebars: SidebarsConfig = {
         'advanced/extras',
         'advanced/debugging',
         'advanced/takedown',
+        'advanced/private-cluster-nat-router',
       ],
     },
     {
@@ -62,6 +63,8 @@ const sidebars: SidebarsConfig = {
         'guides/encryption-at-rest',
         'guides/tls',
         'guides/backup-restore',
+        'guides/rancher-integration',
+        'guides/contributing',
       ],
     },
   ],

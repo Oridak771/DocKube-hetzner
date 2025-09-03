@@ -18,12 +18,21 @@ autoscaler_nodepools = [
     location    = "nbg1"
     min_count   = 1
     max_count   = 10
-    labels = [
-      "node.kubernetes.io/type=autoscaler"
+    labels = {
+      "node.kubernetes.io/type" = "autoscaler"
+    }
+    taints = [
+      {
+        key    = "dedicated"
+        value  = "autoscaler"
+        effect = "NoSchedule"
+      }
     ]
   }
 ]
 ```
+
+**Note:** The old `autoscaler_labels` and `autoscaler_taints` variables are deprecated. Use the `labels` map and `taints` list of objects directly within the `autoscaler_nodepools` block as shown above.
 
 ## Important Considerations
 

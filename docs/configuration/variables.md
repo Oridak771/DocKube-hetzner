@@ -152,6 +152,39 @@ kubeProxyReplacement: true
 EOT
 ```
 
+## Ingress Configuration
+
+### ingress_controller
+
+Choose between Traefik, Nginx, or HAProxy as ingress controller.
+
+Default: `traefik`
+
+```hcl
+ingress_controller = "haproxy"
+```
+
+### haproxy_requests_cpu
+
+CPU requests for HAProxy ingress controller pods.
+
+Default: `100m`
+
+```hcl
+haproxy_requests_cpu = "200m"
+```
+
+### haproxy_values
+
+Helm values for HAProxy ingress controller configuration.
+
+```hcl
+haproxy_values = <<EOT
+controller:
+  replicaCount: 2
+EOT
+```
+
 ## Feature Flags
 
 ### automatically_upgrade_os
@@ -214,6 +247,50 @@ Default: `extra-manifests`
 
 ```hcl
 extra_kustomize_folder = "extra-manifests"
+```
+
+### k3s_prefer_bundled_bin
+
+Prefer the bundled k3s binary over the system's k3s binary. Useful for troubleshooting k3s version conflicts.
+
+Default: `false`
+
+```hcl
+k3s_prefer_bundled_bin = true
+```
+
+### export_values
+
+Export Terraform outputs as YAML files for integration with GitOps tools like ArgoCD.
+
+Default: `false`
+
+```hcl
+export_values = true
+```
+
+### microos_x86_snapshot_id
+
+Pin a specific MicroOS snapshot ID for x86 nodes to ensure reproducibility.
+
+```hcl
+microos_x86_snapshot_id = "12345678"
+```
+
+### microos_arm_snapshot_id
+
+Pin a specific MicroOS snapshot ID for ARM nodes to ensure reproducibility.
+
+```hcl
+microos_arm_snapshot_id = "87654321"
+```
+
+### lb_hostname
+
+Custom hostname for the load balancer, important for DNS and service-to-service communication.
+
+```hcl
+lb_hostname = "my-cluster.example.com"
 ```
 
 This is just a selection of the most commonly used variables. For a complete reference, see the `variables.tf` file in the repository.

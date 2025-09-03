@@ -82,3 +82,25 @@ Or use the Cilium CLI:
 ```bash
 cilium hubble ui
 ```
+
+## Ingress Controllers
+
+In addition to CNI plugins, Kube-Hetzner supports multiple ingress controllers for routing external traffic to your services:
+
+### Traefik (Default)
+
+Traefik is the default ingress controller, providing dynamic configuration and automatic service discovery.
+
+### Nginx
+
+Nginx Ingress Controller offers high performance and extensive customization options.
+
+### HAProxy
+
+HAProxy Ingress Controller provides advanced load balancing features and high availability.
+
+To use a specific ingress controller, set the `ingress_controller` variable in your `kube.tf`:
+
+```hcl
+ingress_controller = "haproxy"
+```

@@ -23,27 +23,62 @@ The only nodepool that needs to have always at least a count of 1 is the first c
 
 ## Advanced Scaling with Individual Nodes
 
-An advanced use case is to replace the count of a nodepool by a map with each key representing a single node. In this case, you can add and remove individual nodes from a pool by adding and removing their entries in this map, and it allows you to set individual labels and other parameters on each node in the pool.
+An advanced use case is to replace the `count` of a nodepool by a `nodes` map with each key representing a single node. This approach provides fine-grained control over individual nodes within a pool, allowing for per-node overrides of location, labels, taints, server type, and other parameters.
 
-Example:
+### Benefits
+
+- **Heterogeneous Nodepools**: Mix different server types within the same nodepool
+- **Fine-grained Labels and Taints**: Apply specific labels or taints to individual nodes
+- **Placement Control**: Assign different placement groups or locations to specific nodes
+- **Gradual Scaling**: Add or remove individual nodes without affecting others
+- **Resource Optimization**: Tailor node specifications to specific workloads
+
+### Configuration
+
+Instead of using `count`, define a `nodes` map where each key is a unique identifier for the node:
 
 ```hcl
 agent_nodepools = [
   {
     name        = "agent-large",
-    server_type = "cx32",
-    location    = "nbg1",
+    server_type = "cx32",  # Default server type
+    location    = "nbg1",  # Default location
     nodes = {
-      "0" : {
+      "node-01" : {
         labels = ["my.extra.label=special"],
         placement_group = "agent-large-pg-1",
       },
-      "1" : {
-        server_type = "cx42",
-        labels = ["my.extra.label=slightlybiggernode"]
+      "node-02" : {
+        server_type = "cx42",  # Override default server type
+        labels = ["my.extra.label=slightlybiggernode"],
+        taints = [
+          {
+            key    = "dedicated"
+            value  = "gpu"
+            effect = "NoSchedule"
+          }
+        ],
         placement_group = "agent-large-pg-2",
+      },
+      "node-03" : {
+        location = "fsn1",  # Override default location
+        labels = ["topology.kubernetes.io/zone=germany-fsn1"]
       },
     }
   },
 ]
 ```
+
+### Node Management
+
+- **Adding Nodes**: Add new entries to the `nodes` map
+- **Removing Nodes**: Remove entries from the `nodes` map (ensure proper draining first)
+- **Modifying Nodes**: Update the configuration for existing node keys
+- **Scaling**: The number of nodes is determined by the number of entries in the map
+
+### Important Notes
+
+- Node keys should be unique within the nodepool
+- When using `nodes`, the `count` parameter is ignored
+- Individual node configurations override the nodepool defaults
+- Ensure proper draining before removing nodes to avoid workload disruption
