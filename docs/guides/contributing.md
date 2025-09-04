@@ -25,7 +25,7 @@ If you need to update variable descriptions or add new variables:
 
 1. Create a new Markdown file in the appropriate directory under `docs/`
 2. Add the required frontmatter:
-   ```yaml
+   ```yaml title="frontmatter.yaml"
    ---
    sidebar_position: X
    ---

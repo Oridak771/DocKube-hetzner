@@ -1,4 +1,6 @@
 ---
+title: Installation
+sidebar_label: Installation
 sidebar_position: 2
 ---
 
@@ -10,13 +12,13 @@ sidebar_position: 2
 2. Generate a passphrase-less ed25519 SSH key pair for your cluster; take note of the respective paths of your private and public keys. Or, see our detailed [SSH options](../configuration/ssh.md). ✅
 3. Now navigate to where you want to have your project live and execute the following command, which will launch an **interactive script** to guide you through creating a new project folder, generating your `kube.tf` file, and optionally creating the required MicroOS snapshot. ✅
 
-   ```sh
+   ```sh title="Terminal"
    tmp_script=$(mktemp) && curl -sSL -o "${tmp_script}" https://raw.githubusercontent.com/kube-hetzner/terraform-hcloud-kube-hetzner/master/scripts/create.sh && chmod +x "${tmp_script}" && "${tmp_script}" && rm "${tmp_script}"
    ```
 
    Or for fish shell:
 
-   ```fish
+   ```fish title="Terminal"
    set tmp_script (mktemp); curl -sSL -o "{tmp_script}" https://raw.githubusercontent.com/kube-hetzner/terraform-hcloud-kube-hetzner/master/scripts/create.sh; chmod +x "{tmp_script}"; bash "{tmp_script}"; rm "{tmp_script}"
    ```
 
@@ -47,7 +49,7 @@ sidebar_position: 2
 
 Now that you have your `kube.tf` file, along with the OS snapshot in Hetzner project, you can start the installation process:
 
-```sh
+```sh title="Terminal"
 cd <your-project-folder>
 terraform init --upgrade
 terraform validate

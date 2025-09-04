@@ -22,7 +22,7 @@ your-project/
 
 Create a `kustomization.yaml.tpl` file:
 
-```yaml
+```yaml title="kustomization.yaml.tpl"
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
@@ -47,7 +47,7 @@ secretGenerator:
 
 Create a `deployment.yaml` file:
 
-```yaml
+```yaml title="deployment.yaml"
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -80,7 +80,7 @@ spec:
 
 Create a `service.yaml` file:
 
-```yaml
+```yaml title="service.yaml"
 apiVersion: v1
 kind: Service
 metadata:
@@ -101,7 +101,7 @@ spec:
 
 Create a `configmap.yaml` file:
 
-```yaml
+```yaml title="configmap.yaml"
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -127,7 +127,7 @@ data:
 
 In your `kube.tf`, configure the extra kustomize parameters:
 
-```hcl
+```tf title="kube.tf"
 extra_kustomize_parameters = {
   db_password = "supersecretpassword"
 }

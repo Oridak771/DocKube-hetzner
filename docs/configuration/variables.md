@@ -1,4 +1,6 @@
 ---
+title: Variables Reference
+sidebar_label: Variables
 sidebar_position: 3
 ---
 
@@ -12,7 +14,7 @@ This document describes the key variables you can configure in your `kube.tf` fi
 
 Your Hetzner Cloud API token. Can be specified directly or through the `TF_VAR_hcloud_token` environment variable.
 
-```hcl
+```tf title="kube.tf"
 hcloud_token = "your-hcloud-token"
 ```
 
@@ -293,4 +295,4 @@ Custom hostname for the load balancer, important for DNS and service-to-service 
 lb_hostname = "my-cluster.example.com"
 ```
 
-This is just a selection of the most commonly used variables. For a complete reference, see the `variables.tf` file in the repository.
+This is just a selection of the most commonly used variables. For a complete reference, see the [terraform.md](terraform.md) file.

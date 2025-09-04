@@ -1,4 +1,6 @@
 ---
+title: CNI (Container Network Interface)
+sidebar_label: CNI
 sidebar_position: 3
 ---
 
@@ -18,7 +20,7 @@ Calico is a more feature-rich networking solution that provides network policy e
 
 To use Calico, set the `cni_plugin` variable in your `kube.tf`:
 
-```hcl
+```tf title="kube.tf"
 cni_plugin = "calico"
 ```
 
@@ -34,7 +36,7 @@ Cilium is the most advanced CNI plugin, offering powerful networking, security, 
 
 To use Cilium, set the `cni_plugin` variable in your `kube.tf`:
 
-```hcl
+```tf title="kube.tf"
 cni_plugin = "cilium"
 ```
 
@@ -44,7 +46,7 @@ As Cilium has many configuration options, Kube-Hetzner provides the `cilium_valu
 
 Example configuration:
 
-```hcl
+```tf title="kube.tf"
 cilium_values = <<EOT
 ipam:
   mode: kubernetes
@@ -67,19 +69,19 @@ EOT
 
 Cilium Hubble provides deep visibility into your cluster's network traffic. To enable Hubble:
 
-```hcl
+```tf title="kube.tf"
 cilium_hubble_enabled = true
 ```
 
 To access the Hubble UI, you can either port-forward the service:
 
-```bash
+```bash title="Terminal"
 kubectl port-forward -n kube-system service/hubble-ui 12000:80
 ```
 
 Or use the Cilium CLI:
 
-```bash
+```bash title="Terminal"
 cilium hubble ui
 ```
 
@@ -101,6 +103,6 @@ HAProxy Ingress Controller provides advanced load balancing features and high av
 
 To use a specific ingress controller, set the `ingress_controller` variable in your `kube.tf`:
 
-```hcl
+```tf title="kube.tf"
 ingress_controller = "haproxy"
 ```

@@ -10,7 +10,7 @@ Kube-Hetzner supports autoscaling node pools powered by the Kubernetes [Cluster 
 
 To enable autoscaling, add at least one map to the array of `autoscaler_nodepools` in your configuration:
 
-```hcl
+```tf title="kube.tf"
 autoscaler_nodepools = [
   {
     name        = "autoscaler-agent"
@@ -59,7 +59,7 @@ The nodes are booted based on a snapshot that is created from the initial contro
 
 You can configure additional autoscaler settings:
 
-```hcl
+```tf title="kube.tf"
 autoscaler_enabled = true
 autoscaler_scale_down_enabled = true
 autoscaler_scale_down_delay = "10m"
@@ -70,7 +70,7 @@ autoscaler_scale_down_unneeded_time = "10m"
 
 To monitor the autoscaler, check the logs of the autoscaler pod:
 
-```bash
+```bash title="Terminal"
 kubectl -n kube-system logs -l app=cluster-autoscaler
 ```
 

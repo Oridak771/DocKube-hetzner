@@ -18,14 +18,14 @@ If your key-pair is of the `ssh-ed25519` sort (useful command `ssh-keygen -t ed2
 
 Otherwise, for a key-pair with passphrase or a device like a Yubikey, make sure you have an SSH agent running and your key is loaded with:
 
-```bash
+```bash title="Terminal"
 eval ssh-agent $SHELL
 ssh-add ~/.ssh/my_private-key_id
 ```
 
 Verify it is loaded with:
 
-```bash
+```bash title="Terminal"
 ssh-add -l
 ```
 
@@ -35,7 +35,7 @@ Then set `private_key = null` in your kube.tf file, as it will be read from the 
 
 You can customize the SSH port (by default 22) in your kube.tf:
 
-```hcl
+```tf title="kube.tf"
 ssh_port = 2222
 ```
 
@@ -43,7 +43,7 @@ ssh_port = 2222
 
 You can add additional SSH public Keys to grant other team members root access to your cluster nodes:
 
-```hcl
+```tf title="kube.tf"
 ssh_additional_public_keys = [
   "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI...",
   "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ..."
@@ -54,7 +54,7 @@ ssh_additional_public_keys = [
 
 If you want to use an ssh key that is already registered within hetzner cloud, you can pass its id:
 
-```hcl
+```tf title="kube.tf"
 hcloud_ssh_key_id = "123456"
 ```
 

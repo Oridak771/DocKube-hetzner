@@ -30,7 +30,7 @@ export default function Home() {
               </div>
 
               <div className="margin-top--lg">
-                <a className="button button--secondary button--lg" href="/kube-hetzner/docs/getting-started/prerequisites">
+                <a className="button button--secondary button--lg" href="/DocKube-hetzner/docs/getting-started/prerequisites">
                   Get Started
                 </a>
               </div>
@@ -107,7 +107,7 @@ export default function Home() {
               <p className="margin-bottom--lg">
                 Deploy your production-ready Kubernetes cluster on Hetzner Cloud in minutes.
               </p>
-              <a className="button button--secondary button--lg" href="/kube-hetzner/docs/getting-started/prerequisites">
+              <a className="button button--secondary button--lg" href="/DocKube-hetzner/docs/getting-started/prerequisites">
                 Start Your Deployment
               </a>
             </div>
